@@ -1,0 +1,79 @@
+netcdf postprocess_template {
+dimensions:
+  lon = XLEN ;
+  lat = YLEN ;
+ cat = 20 ;
+  time = 12 ;
+variables:
+  double lon(lon) ;
+    lon:long_name = "longitude" ;
+    lon:units = "degrees_east" ;
+  double lat(lat) ;
+    lat:long_name = "latitude" ;
+    lat:units = "degrees_north" ;
+  integer cat(cat) ; 
+   cat:long_name = "category" ;
+double time(time) ;
+  time:climatology = "climatology_bounds" ;
+  time:units = "days since 0000-01-01" ;
+  time:avg_period = "0000-01-00 00:00:00" ;
+  time:long_name = "time" ;
+  time:actual_range = 0., 0. ;
+  time:delta_t = "0000-01-00 00:00:00" ;
+  time:standard_name = "time" ;
+  time:coordinate_defines = "start" ;
+  time:calendar = "365_day" ;
+  time:note = "time coordinate refers to first day of month" ;
+ float landusef(cat,lat,lon) ;
+  landusef:long_name = "coverage of this land cover type in the gridcell" ;
+  landusef:units = "fraction" ;
+  landusef:_FillValue = -1.f ;
+  landusef:_ChunkSizes = 1, YLEN, XLEN ;
+  landusef:_DeflateLevel = 1 ;
+ byte lu_index(lat,lon) ;
+  lu_index:long_name = "dominant land cover type" ;
+  lu_index:units = "category" ;
+  lu_index:_FillValue = -128b ;
+  lu_index:_ChunkSizes = YLEN, XLEN ;
+  lu_index:_DeflateLevel = 1 ;
+ float greenfrac(time,lat,lon) ;
+  greenfrac:long_name = "total FPAR" ;
+  greenfrac:units = "fraction" ;
+  greenfrac:_FillValue = -9999.f ;
+  greenfrac:_ChunkSizes = 1, YLEN, XLEN ;
+  greenfrac:_DeflateLevel = 1 ;
+ float LAI12m(time,lat,lon) ;
+  LAI12m:long_name = "mean LAI" ;
+  LAI12m:units = "m2 m-2" ;
+  LAI12m:_FillValue = -9999.f ;
+  LAI12m:_ChunkSizes = 1, YLEN, XLEN ;
+  LAI12m:_DeflateLevel = 1 ;
+ float albedo12m(time,lat,lon) ;
+  albedo12m:long_name = "surface albdeo" ;
+  albedo12m:units = "percent" ;
+  albedo12m:_FillValue = -9999.f ;
+  albedo12m:_ChunkSizes = 1, YLEN, XLEN ;
+  albedo12m:_DeflateLevel = 1 ;
+ float soiltemp(lat,lon) ;
+  soiltemp:long_name = "annual mean deep soil temperature (ice-free land only)" ;
+  soiltemp:units = "degC" ;
+  soiltemp:_FillValue = -9999.f ;
+  soiltemp:_ChunkSizes = YLEN, XLEN ;
+  soiltemp:_DeflateLevel = 1 ;
+ float snoalb(lat,lon) ;
+  snoalb:long_name = "maximum snow albedo" ;
+  snoalb:units = "percent" ;
+  snoalb:_FillValue = -9999.f ;
+  snoalb:_ChunkSizes = YLEN, XLEN ;
+  snoalb:_DeflateLevel = 1 ;
+ 
+// global attributes:
+    :Conventions = "COARDS, CF-1.0" ;
+    :title = "LPJ-LMfire postprocessed output for WRF boundary conditions" ;
+    :node_offset = 1 ;
+data:
+
+ cat = 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 ;
+
+ time = 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 ;
+}

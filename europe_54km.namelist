@@ -1,0 +1,5 @@
+&infiles
+lpjfile  = '/soge-home/users/cenv0668/arve/lpj/LPJ-LMfire/output/WRF-LGM_europe54km_CYCLE.nc'
+maskfile = '/soge-home/users/cenv0668/arve/datasets/paleogeography/europe_54km/topofile_integrated_021ka.nc'
+climfile = '/soge-home/users/cenv0668/arve/science_projects/WRF_LGM/CYCLE/54km/tann_mean_last150.nc'
+/

@@ -1,0 +1,12 @@
+&albedo
+!values from CLM (Oleson et al 2010, average taken for boreal deciduous types)
+pftalbedo(1) = 0.10  !tropical broadleaved evergreen tree
+pftalbedo(2) = 0.10  !tropical broadleaved raingreen tree
+pftalbedo(3) = 0.07  !temperate needleleaved evergreen tree
+pftalbedo(4) = 0.10  !temperate broadleaved evergreen tree
+pftalbedo(5) = 0.10  !temperate broadleaved summergreen tree
+pftalbedo(6) = 0.07  !boreal needleleaved evergreen tree
+pftalbedo(7) = 0.085 !boreal summergreen tree
+pftalbedo(8) = 0.11  !C3 perennial grass
+pftalbedo(9) = 0.11  !C4 perennial grass
+/
