@@ -4,6 +4,8 @@ Simple Fortran program and helper scripts and namelists for converting [LPJ-LMfi
 
 The program generates the following variables as output (for input to WRF):
 
+|no.|variable|
+|---|---|
 |1.|land cover fraction (category)|
 |2.|dominant land cover type (category)|
 |3.|FPAR (monthly)|
